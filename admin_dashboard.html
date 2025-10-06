@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpotAlert Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+</head>
+
+<body>
+  <header>
+    SpotAlert Admin Control Panel
+  </header>
+
+  <div class="container">
+
+    <!-- SECTION 1: Users -->
+    <div class="section" id="usersSection">
+      <h2>Registered Users</h2>
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Plan</th>
+            <th>Known Faces</th>
+            <th>Scans Used</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="refreshUsers">Refresh List</button>
+    </div>
+
+    <!-- SECTION 2: Alerts -->
+    <div class="section" id="systemAlerts">
+      <h2>System Alerts Log</h2>
+      <table id="alertsTable">
+        <thead>
+          <tr>
+            <th>Alert ID</th>
+            <th>User</th>
+            <th>Camera</th>
+            <th>Timestamp</th>
+            <th>Snapshot</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="refreshAlertsAdmin">Refresh Alerts</button>
+    </div>
+
+    <!-- SECTION 3: Plans -->
+    <div class="section" id="plansSection">
+      <h2>Subscription Plans</h2>
+      <ul>
+        <li><strong>Free Trial:</strong> 90 min session, 10 faces, 200 scans</li>
+        <li><strong>Standard:</strong> Monthly $19.99, 1000 scans, 10 faces</li>
+        <li><strong>Premium:</strong> Monthly $49.99, 10 000 scans, 50 faces</li>
+      </ul>
+      <button id="editPlans">Edit Plans</button>
+    </div>
+
+    <!-- SECTION 4: Admin Tools -->
+    <div class="section" id="adminTools">
+      <h2>Admin Tools</h2>
+      <button id="viewLogs">View System Logs</button>
+      <button id="sendNotice">Send Notice to All Users</button>
+      <button id="logoutAdmin" class="btn-danger">Logout</button>
+    </div>
+
+  </div>
+
+  <script src="admin_dashboard.js"></script>
+</body>
+</html>

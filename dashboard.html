@@ -1,0 +1,70 @@
+<!-- ===== SpotAlert Customer Dashboard ===== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpotAlert | Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard">
+
+  <header class="nav">
+    <div class="logo">📹 SpotAlert</div>
+    <nav>
+      <a href="#cams">Cameras</a>
+      <a href="#faces">Known Faces</a>
+      <a href="#alerts">Alerts</a>
+      <a href="#settings">Settings</a>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- CAMERA SECTION -->
+    <section id="cams">
+      <h2>Connected Cameras</h2>
+      <div class="camera-grid">
+        <div class="cam-box">
+          <video src="sample1.mp4" autoplay muted loop></video>
+          <p>CAM-101 (Main Entrance)</p>
+        </div>
+        <div class="cam-box">
+          <video src="sample2.mp4" autoplay muted loop></video>
+          <p>CAM-102 (Back Yard)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FACES UPLOAD -->
+    <section id="faces">
+      <h2>Known Faces (10 max)</h2>
+      <form id="faceUploadForm">
+        <input type="file" id="faceImage" accept="image/*" />
+        <input type="text" id="faceLabel" placeholder="Person Name" />
+        <button type="submit" class="btn-primary">Upload Face</button>
+      </form>
+      <div id="faceList"></div>
+    </section>
+
+    <!-- ALERTS -->
+    <section id="alerts">
+      <h2>Recent Alerts</h2>
+      <ul id="alertList"></ul>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings">
+      <h2>Account Settings</h2>
+      <p>Plan: <strong id="currentPlan">Loading…</strong></p>
+      <button id="upgradeBtn" class="btn-secondary">Upgrade Plan</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 SpotAlert Inc – All Rights Reserved</p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* ===== SpotAlert Frontend Styles ===== */
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+  color: #333;
+}
+
+header.nav {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 45px;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav ul li a:hover,
+.nav ul li a.btn {
+  color: #0066ff;
+}
+
+.nav ul li a.btn {
+  background: #0066ff;
+  color: #fff !important;
+  padding: 8px 18px;
+  border-radius: 6px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 10%;
+  background: linear-gradient(to right, #fff, #f0f2f5);
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  color: #555;
+}
+
+.hero-img {
+  max-width: 45%;
+}
+
+.cta {
+  background: #0066ff;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.features {
+  padding: 80px 10%;
+  background: #fff;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.features .grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 30px;
+  flex: 1 1 30%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feature h3 {
+  color: #0066ff;
+}
+
+.plans {
+  padding: 80px 10%;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.plan-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.plan {
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  width: 280px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.plan h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.plan p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.plan-btn {
+  background: #0066ff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+footer {
+  background: #222;
+  color: #bbb;
+  padding: 30px;
+  text-align: center;
+}
+
+footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text,
+  .hero-img {
+    max-width: 100%;
+  }
+
+  .features .grid {
+    flex-direction: column;
+  }
+
+  .plan-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

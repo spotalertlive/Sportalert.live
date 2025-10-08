@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpotAlert – Smart CCTV Detection & Alerts</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",Arial,sans-serif;}
+    body{background:#f9f9f9;color:#222;line-height:1.6;}
+    header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.05);position:fixed;width:100%;top:0;left:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:10px 30px;}
+    .logo{width:180px;height:60px;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADcmr0NAAAAMFBMVEX///8AAABhYWHv7++SkpL39/fX19fS0tLq6uq6urqampq4uLh0dHS/v7/ExMRHR0eMjIympqeOTAsuAAABFUlEQVR4nO3bS46DMAwF0KjSmv//2bYItR0JbE+j6f7PBkSWY9yQAeHjSgRghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEKIr8p1TnT7oLuk/1m2zdf6ZddQdVmV3KXryko9YZfxfK6HbUX0uKPg82b9VyM7v7lnnbw06sR4f3dcOO2j97g7oxXfvp1yz+Wnp4dz9FMe+52/UvVuqPyydp06+KtfYXfuX7cOr1VZ7D52fY3d8o5v6u77zvO6Ueo22l/s1es+uh6M1tdfe/fP7cmvRuqfnh9/VF7zdu3s8t7mx/6wGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCiD+HwSRDi6Ao4hUAAAAASUVORK5CYII=");
+    background-size:contain;background-repeat:no-repeat;background-position:center;}
+    nav ul{list-style:none;display:flex;align-items:center;}
+    nav ul li{position:relative;margin-left:25px;}
+    nav ul li a{color:#0078ff;text-decoration:none;font-weight:500;padding:8px 10px;transition:0.3s;}
+    nav ul li a:hover{color:#005fcc;}
+    nav ul li ul{display:none;position:absolute;top:35px;left:0;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);border-radius:6px;min-width:180px;}
+    nav ul li:hover ul{display:block;}
+    nav ul li ul li{margin:0;}
+    nav ul li ul li a{display:block;padding:10px;color:#0078ff;}
+    nav ul li ul li a:hover{background:#f0f6ff;}
+    .hero{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:140px 20px 60px;background:linear-gradient(120deg,#0078ff,#00aaff);color:#fff;}
+    .hero-text{max-width:520px;margin-right:30px;}
+    .hero-text h1{font-size:2.5rem;margin-bottom:15px;}
+    .hero-text p{font-size:1.1rem;margin-bottom:25px;}
+    .cta{background:#fff;color:#0078ff;padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:600;}
+    .cta:hover{background:#f0f0f0;}
+    .hero-img{width:350px;max-width:90%;border-radius:10px;}
+    @media(max-width:768px){
+      .hero{flex-direction:column;text-align:center;}
+      .hero-text{margin:0 0 30px 0;}
+      nav ul{flex-direction:column;background:#fff;position:absolute;top:70px;right:0;width:200px;display:none;}
+      nav ul.show{display:block;}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="logo"></div>
+  <nav>
+    <ul>
+      <li><a href="#">Menu ▾</a>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#plans">Plans</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- END OF PART 1 -->
+  <!-- START OF PART 2 -->
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Instant Alerts for Unknown Faces</h1>
+    <p>Connect your CCTV camera and get email notifications when SpotAlert detects an unrecognized person in real time.</p>
+    <a href="signup.html" class="cta">Start Free Trial (14 Days)</a>
+  </div>
+  <img src="assets/hero-cam.png" alt="SpotAlert Hero" class="hero-img" />
+</section>
+
+<section id="features" class="features" style="padding:60px 20px;text-align:center;background:#fff;">
+  <h2 style="color:#0078ff;margin-bottom:40px;">Key Features</h2>
+  <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1000px;margin:auto;">
+    <div style="background:#f8f8f8;padding:25px;border-radius:10px;border:1px solid #ddd;">
+      <h3 style="color:#0078ff;margin-bottom:10px;">Face Recognition</h3>
+      <p>Automatically identifies known faces and flags unknown visitors in real time.</p>
+    </div>
+    <div style="background:#f8f8f8;padding:25px;border-radius:10px;border:1px solid #ddd;">
+      <h3 style="color:#0078ff;margin-bottom:10px;">Email Alerts</h3>
+      <p>Receive instant emails with snapshot attachments of detected unknown faces.</p>
+    </div>
+    <div style="background:#f8f8f8;padding:25px;border-radius:10px;border:1px solid #ddd;">
+      <h3 style="color:#0078ff;margin-bottom:10px;">Secure Storage</h3>
+      <p>All images are securely stored via AWS S3 with local privacy options enabled.</p>
+    </div>
+  </div>
+</section>
+
+<section id="plans" style="padding:60px 20px;background:#f0f6ff;text-align:center;">
+  <h2 style="color:#0078ff;margin-bottom:40px;">Choose Your Plan</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:1000px;margin:auto;">
+    <div style="background:#fff;border:2px solid #0078ff;border-radius:12px;padding:25px;">
+      <h3>Free Trial</h3>
+      <p>200 scans • Up to 10 known faces • 90 minutes per session</p>
+      <a href="signup.html" class="cta" style="display:inline-block;margin-top:15px;">Try Now</a>
+    </div>
+    <div style="background:#fff;border:2px solid #0078ff;border-radius:12px;padding:25px;">
+      <h3>Standard – $19.99 / mo</h3>
+      <p>1 000 scans • Full Dashboard Access • Email Alerts</p>
+      <a href="signup.html" class="cta" style="display:inline-block;margin-top:15px;">Upgrade</a>
+    </div>
+    <div style="background:#fff;border:2px dashed #999;border-radius:12px;padding:25px;">
+      <h3>Premium – Coming Soon</h3>
+      <p>Multi-camera support • WhatsApp Alerts • Priority AI processing</p>
+    </div>
+    <div style="background:#fff;border:2px dashed #999;border-radius:12px;padding:25px;">
+      <h3>Elite – Coming Soon</h3>
+      <p>Unlimited cameras • Full API access • Custom enterprise security</p>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#fff;padding:40px 20px;text-align:center;border-top:1px solid #eee;">
+  <p>© 2025 SpotAlert Inc. All rights reserved.</p>
+  <p>
+    <a href="privacy.html" style="color:#0078ff;">Privacy Policy</a> | 
+    <a href="terms.html" style="color:#0078ff;">Terms of Service</a> | 
+    <a href="mailto:admin@spotalert.live" style="color:#0078ff;">Contact Support</a>
+  </p>
+</footer>
+
+<script>
+  // mobile dropdown toggle (for future use)
+  const nav = document.querySelector('nav ul');
+  document.addEventListener('click', e=>{
+    if(e.target.matches('.menu-toggle')) nav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
+<!-- END OF PART 2 -->

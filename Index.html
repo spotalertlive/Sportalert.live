@@ -35,27 +35,16 @@
   </style>
 </head>
 
-<body>
-<header>
-  <a href="index.html" class="logo">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAADcmr0NAAAAMFBMVEX///8AAABhYWHv7++SkpL39/fX19fS0tLq6uq6urqampq4uLh0dHS/v7/ExMRHR0eMjIympqeOTAsuAAABFUlEQVR4nO3bS46DMAwF0KjSmv//2bYItR0JbE+j6f7PBkSWY9yQAeHjSgRghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEKIr8p1TnT7oLuk/1m2zdf6ZddQdVmV3KXryko9YZfxfK6HbUX0uKPg82b9VyM7v7lnnbw06sR4f3dcOO2j97g7oxXfvp1yz+Wnp4dz9FMe+52/UvVuqPyydp06+KtfYXfuX7cOr1VZ7D52fY3d8o5v6u77zvO6Ueo22l/s1es+uh6M1tdfe/fP7cmvRuqfnh9/VF7zdu3s8t7mx/6wGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCiD+HwSRDi6Ao4hUAAAAASUVORK5CYII=" alt="SpotAlert Logo" style="height:60px;width:auto;">
-  </a>
-
-  <nav>
-    <button class="menu-toggle" style="background:none;border:none;font-size:1.5rem;color:#0078ff;cursor:pointer;display:none;">☰</button>
-    <ul>
-      <li><a href="#">Menu ▾</a>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#plans">Plans</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
+  <script>
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector(".blur-header");
+    if (window.scrollY > 20) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
 
 <script>
   // Mobile dropdown logic

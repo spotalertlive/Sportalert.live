@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpotAlert – Smart CCTV Detection & Alerts</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ===== HEADER (your original) ===== */
+    .frosted-header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 999; display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 20px;
+    }
+    .logo-center { flex: 1; display: flex; justify-content: center; align-items: center; }
+    .logo {
+      width: 200px; max-width: 80%; height: auto;
+      filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8)) drop-shadow(0 0 18px rgba(0, 102, 255, 0.7));
+      animation: glowPulse 2s infinite alternate;
+    }
+    @keyframes glowPulse {
+      from {filter: drop-shadow(0 0 10px rgba(255,255,0,.6)) drop-shadow(0 0 15px rgba(0,102,255,.5));}
+      to   {filter: drop-shadow(0 0 25px rgba(255,255,0,1)) drop-shadow(0 0 30px rgba(0,102,255,.9));}
+    }
+    .menu-toggle{background:none;border:none;font-size:26px;color:#0044cc;cursor:pointer;z-index:1000;}
+    .dropdown-menu{
+      position:absolute;top:60px;right:20px;background:rgba(255,255,255,.9);
+      backdrop-filter:blur(8px);border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.2);
+      list-style:none;display:none;flex-direction:column;padding:10px 0;min-width:160px;
+    }
+    .dropdown-menu.active{display:flex;}
+    .dropdown-menu li{text-align:center;padding:8px 0;}
+    .dropdown-menu a{text-decoration:none;color:#0044cc;font-weight:500;transition:color .3s;}
+    .dropdown-menu a:hover{color:#ffcc00;}
+
+    /* ===== NEW CONTENT STYLES ===== */
+    .plans{padding:100px 10%;text-align:center;background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);}
+    .plans h2{font-size:2.2rem;color:#0078ff;margin-bottom:50px;text-shadow:0 0 10px rgba(0,120,255,.25);}
+    .plan-cards{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;}
+    .plan{
+      position:relative;width:270px;background:rgba(255,255,255,.3);
+      border:1.5px solid rgba(0,136,255,.35);border-radius:18px;backdrop-filter:blur(18px);
+      padding:40px 25px;box-shadow:0 0 25px rgba(0,136,255,.15),inset 0 0 18px rgba(255,255,255,.25);
+      transition:transform .3s ease,box-shadow .3s ease;
+    }
+    .plan:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 0 40px rgba(0,136,255,.25),inset 0 0 25px rgba(255,255,255,.3);}
+    .plan h3{color:#0078ff;margin-bottom:10px;font-size:1.2rem;text-shadow:0 0 12px rgba(0,120,255,.25);}
+    .plan p{color:#333;font-size:.95rem;margin-bottom:25px;line-height:1.5;}
+    .plan-btn{
+      display:inline-block;padding:10px 26px;border-radius:50px;font-weight:600;
+      color:#fff;text-decoration:none;background:linear-gradient(90deg,#0078ff,#00bfff);
+      box-shadow:0 0 20px rgba(0,136,255,.35);transition:all .3s;
+    }
+    .plan-btn:hover{background:linear-gradient(90deg,#005fcc,#0099ff);box-shadow:0 0 30px rgba(0,136,255,.6);transform:scale(1.05);}
+    .plan.coming{border:1.5px dashed rgba(0,120,255,.35);opacity:.8;}
+    .cta-wrap{text-align:center;}
+    .alert-tagline{margin-top:8px;}
+    .alert-tagline span{
+      display:inline-block;padding:8px 18px;border-radius:50px;font-size:1.02rem;font-weight:600;color:#0078ff;
+      background:rgba(255,255,255,.3);backdrop-filter:blur(10px);
+      box-shadow:0 0 18px rgba(0,136,255,.25),inset 0 0 8px rgba(255,255,255,.28);
+      animation:glowPulseText 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes glowPulseText{from{text-shadow:0 0 10px rgba(0,136,255,.3);}to{text-shadow:0 0 22px rgba(255,221,0,.8);color:#005fcc;}}
+    .business-teaser{margin-top:56px;display:flex;justify-content:center;}
+    .biz-card{
+      text-align:center;padding:18px 22px;border-radius:14px;max-width:680px;
+      background:rgba(255,255,255,.35);backdrop-filter:blur(14px);border:1px solid rgba(0,136,255,.25);
+      box-shadow:0 0 28px rgba(0,136,255,.20),inset 0 0 10px rgba(255,255,255,.25);color:#004080;
+    }
+    .fade-on-scroll{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+    .fade-on-scroll.visible{opacity:1;transform:translateY(0);}
+    /* Floating Shira */
+    #shira-bubble{
+      position:fixed;bottom:24px;right:24px;width:68px;height:68px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%,#00a2ff,#0057e7);
+      box-shadow:0 0 25px rgba(0,136,255,.45);display:flex;align-items:center;justify-content:center;
+      cursor:pointer;z-index:10000;transition:transform .25s,box-shadow .25s;
+    }
+    #shira-bubble:hover{transform:scale(1.08);box-shadow:0 0 34px rgba(255,221,0,.75);}
+    .shira-icon{width:40px;height:40px;filter:drop-shadow(0 0 8px rgba(255,255,255,.7));}
+    #shira-chatbox{
+      position:fixed;bottom:100px;right:24px;width:360px;height:520px;display:none;z-index:10001;
+      background:rgba(255,255,255,.96);border-radius:16px;overflow:hidden;
+      box-shadow:0 12px 40px rgba(0,0,0,.15),0 0 30px rgba(0,136,255,.35);
+    }
+    #shira-chatbox iframe{width:100%;height:100%;border:none;}
+    @media(max-width:480px){#shira-chatbox{width:95vw;right:2.5vw;height:70vh;bottom:90px;}}
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="frosted-header">
+    <div class="logo-center">
+      <img src="spotalert_logo.png" alt="SpotAlert Logo" class="logo" />
+    </div>
+    <button class="menu-toggle">☰</button>
+    <ul class="dropdown-menu">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="admin_login.html">Admin Login</a></li>
+    </ul>
+  </header>
+
+  <!-- ===== NEW PLANS SECTION ===== -->
+  <section class="plans" id="plans">
+    <h2>Choose Your SpotAlert Plan</h2>
+
+    <div class="plan-cards">
+
+      <div class="plan">
+        <h3>Free Trial (14 Days)</h3>
+        <p>
+          ✅ 2 camera monitors<br>
+          ✅ 200 scans total<br>
+          ✅ Email notifications only<br>
+          🚫 WhatsApp / App alerts disabled<br>
+          ⏳ Auto-upgrade prompt before trial ends<br>
+          🌍 Default time zone: system-detected (no manual change)
+        </p>
+        <div class="cta-wrap">
+          <a href="/signup?plan=free" class="plan-btn">Start Free Trial</a>
+          <div class="alert-tagline"><span>⚡ Get Notified When It Matters</span></div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <h3>Standard – $19.99/mo</h3>
+        <p>
+          ✅ 4 camera monitors<br>
+          ✅ 3,000 scans/month<br>
+          ✅ Email notifications<br>
+          🚫 WhatsApp / App alerts disabled<br>
+          🌍 Default time zone: system-detected (no manual change)<br>
+          🗂️ 7-day alert history
+        </p>
+        <a href="https://buy.stripe.com/8x2eVd27naqS6vs0OLaVa02" class="plan-btn">Upgrade</a>
+      </div>
+
+      <div class="plan coming">
+        <h3>Premium – $49.99/mo</h3>
+        <p>
+          ✅ 9 camera monitors<br>
+          ✅ 10,000 scans/month<br>
+          ✅ Any alert type (WhatsApp / Email / App)<br>
+          ✅ AI Priority scanning<br>
+          🌍 Custom Time Zone Control (DST-aware)<br>
+          🗂️ 14-day alert history
+        </p>
+        <button disabled class="plan-btn">Coming Soon</button>
+      </div>
+
+      <div class="plan coming">
+        <h3>Elite – $99.99/mo</h3>
+        <p>
+          ✅ 20 camera monitors<br>
+          ✅ 30,000 scans/month<br>
+          ✅ All alert types (WhatsApp / Email / App)<br>
+          ✅ Live tracking + AI analytics<br>
+          🛰️ <strong>Live Track Unknown</strong><br>
+          🌍 Advanced Time Zone Scheduling (per-camera)<br>
+          🗂️ 30-day alert history<br>
+          🔌 Full API access
+        </p>
+        <button disabled class="plan-btn">Coming Soon</button>
+      </div>
+
+    </div>
+
+    <!-- Business teaser -->
+    <div class="business-teaser fade-on-scroll">
+      <div class="biz-card">
+        💼 <strong>Business Plans — Coming Soon</strong><br>
+        <span>Secure offices, shops, and facilities with SpotAlert for Business.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (your original) ===== -->
+  <footer>
+    <p>© 2025 SpotAlert Inc. All rights reserved.</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a> |
+      <a href="mailto:admin@spotalert.live">Contact Support</a>
+    </p>
+  </footer>
+
+  <!-- ===== Floating Shira ===== -->
+  <div id="shira-bubble"><img src="/assets/shira-icon.png" alt="Shira" class="shira-icon"></div>
+  <div id="shira-chatbox"><iframe src="https://aishira.live/embed?assistant=spotalert&mode=text" frameborder="0"></iframe></div>
+
+  <script>
+    // Menu dropdown
+    document.querySelector('.menu-toggle').addEventListener('click',()=>{document.querySelector('.dropdown-menu').classList.toggle('active');});
+
+    // Auth gate for dashboard
+    (function(){
+      const guards=[/^\/dashboard(\/.*)?$/, /^\/alerts(\/.*)?$/];
+      const p=window.location.pathname;
+      if(guards.some(rx=>rx.test(p))){
+        const t=localStorage.getItem("authToken");
+        const v=localStorage.getItem("emailVerified")==="true";
+        if(!t||!v)window.location.replace("/signin");
+      }
+    })();
+
+    // Floating Shira toggle + auto-open once
+    (function(){
+      const b=document.getElementById("shira-bubble"),box=document.getElementById("shira-chatbox");
+      b.addEventListener("click",()=>box.style.display=box.style.display==="block"?"none":"block");
+      if(!localStorage.getItem("shiraOpened")){
+        setTimeout(()=>{box.style.display="block";localStorage.setItem("shiraOpened","true");},2000);
+      }
+    })();
+
+    // Fade-in Business teaser
+    (function(){
+      const el=document.querySelector(".fade-on-scroll");
+      if(!el)return;
+      const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){el.classList.add("visible");io.disconnect();}}),{threshold:.2});
+      io.observe(el);
+    })();
+  </script>
+</body>
+</html>

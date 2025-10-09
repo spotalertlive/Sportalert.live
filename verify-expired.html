@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verification Link Expired – SpotAlert</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(145deg, #ffffff, #eef7ff);
+    font-family: "Poppins", Arial, sans-serif;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .expired-box {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(255, 60, 60, 0.15),
+                inset 0 0 12px rgba(255, 255, 255, 0.3);
+    padding: 50px 30px;
+    max-width: 380px;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .expired-box img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4));
+  }
+
+  .expired-box h1 {
+    color: #ff4040;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.2);
+  }
+
+  .expired-box p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 25px;
+  }
+
+  .expired-box a {
+    display: inline-block;
+    background: #0078ff;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .expired-box a:hover {
+    background: #005fcc;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+  <div class="expired-box">
+    <img src="https://spotalert.live/assets/expired.png" alt="Link Expired">
+    <h1>Verification Link Expired</h1>
+    <p>It looks like this verification link is no longer valid.<br>
+       Please request a new one to activate your account.</p>
+    <a href="https://spotalert.live/resend-verification.html">Resend Link</a>
+  </div>
+</body>
+</html>

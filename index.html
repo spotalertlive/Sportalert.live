@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpotAlert – AI Security Detection System</title>
+  <link rel="icon" type="image/png" href="spotalert_logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Global Styles ===== */
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Poppins',sans-serif;
+      background:#f9fbff;
+      color:#111;
+      overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    /* ===== Frosted Header ===== */
+    .frosted-header {
+      position:fixed;
+      top:0;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 40px;
+      background:rgba(255,255,255,0.7);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      z-index:1000;
+      transition:all 0.3s ease-in-out;
+    }
+    .logo {height:45px;}
+    nav a {
+      text-decoration:none;
+      color:#003366;
+      font-weight:600;
+      margin:0 15px;
+      transition:color 0.2s;
+    }
+    nav a:hover {color:#007bff;}
+
+    /* ===== Hero Section ===== */
+    .hero {
+      height:100vh;
+      background:linear-gradient(to bottom right,#e3f2ff,#f7faff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 20px;
+    }
+    .hero-content {max-width:800px;}
+    .hero h1 {
+      font-size:2rem;
+      font-weight:700;
+      color:#003366;
+      margin-bottom:15px;
+    }
+    .hero h1 span {color:#007bff;}
+    .hero p {color:#333;margin-bottom:30px;}
+    .buttons a {
+      text-decoration:none;
+      margin:0 10px;
+      padding:14px 28px;
+      border-radius:8px;
+      font-weight:600;
+      transition:0.3s;
+    }
+    .btn-primary {
+      background:#007bff;
+      color:white;
+      box-shadow:0 0 18px rgba(0,123,255,0.4);
+    }
+    .btn-primary:hover {background:#0066dd;}
+    .btn-secondary {
+      border:2px solid #007bff;
+      color:#007bff;
+    }
+    .btn-secondary:hover {
+      background:#007bff;
+      color:white;
+    }
+
+    /* ===== CCTV Section (Fixed) ===== */
+    .cctv-section {
+      position:relative;
+      width:100%;
+      margin-top:60px;
+      overflow:hidden;
+    }
+    .cctv-section img {
+      width:100%;
+      height:auto;
+      object-fit:cover;
+      display:block;
+      border-radius:0;
+      filter:brightness(80%);
+    }
+    .cctv-text {
+      position:absolute;
+      bottom:10%;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(0,0,0,0.6);
+      color:white;
+      padding:30px 25px;
+      border-radius:12px;
+      text-align:center;
+      max-width:90%;
+      box-shadow:0 0 25px rgba(0,0,0,0.4);
+    }
+    .cctv-text h2 {
+      font-size:1.8rem;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    .cctv-text p {
+      font-size:1rem;
+      line-height:1.5;
+    }
+    @media (max-width:768px){
+      .cctv-text {
+        bottom:5%;
+        padding:20px 15px;
+      }
+      .cctv-text h2 {font-size:1.4rem;}
+      .cctv-text p {font-size:0.9rem;}
+    }
+
+    /* ===== Features Section ===== */
+    .features {
+      padding:80px 20px;
+      background:#f9fbff;
+      text-align:center;
+    }
+    .features h2 {
+      font-size:1.9rem;
+      color:#003366;
+      font-weight:700;
+      margin-bottom:50px;
+    }
+    .features-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .feature {
+      background:white;
+      padding:30px 25px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+      transition:transform 0.3s ease,box-shadow 0.3s ease;
+    }
+    .feature:hover {
+      transform:translateY(-6px);
+      box-shadow:0 8px 22px rgba(0,123,255,0.2);
+    }
+    .feature h3 {
+      color:#003366;
+      font-size:1.2rem;
+      margin-bottom:10px;
+    }
+    .feature p {color:#333;font-size:0.95rem;}
+
+    /* ===== CTA ===== */
+    .cta {
+      background:linear-gradient(to right,#007bff,#0056d2);
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+    .cta h2 {font-size:1.8rem;margin-bottom:15px;}
+    .cta p {margin-bottom:25px;font-size:1rem;}
+    .cta .btn-primary {
+      background:white;
+      color:#007bff;
+      font-weight:700;
+      box-shadow:0 0 15px rgba(255,255,255,0.4);
+    }
+    .cta .btn-primary:hover {background:#eef5ff;}
+
+    /* ===== Footer ===== */
+    footer {
+      background:#f0f4fa;
+      text-align:center;
+      padding:30px 20px;
+      font-size:0.9rem;
+      color:#333;
+    }
+    footer a {
+      color:#007bff;
+      text-decoration:none;
+      margin:0 8px;
+    }
+    footer a:hover {text-decoration:underline;}
+
+    /* ===== Responsive Header ===== */
+    @media (max-width:768px){
+      .hero h1 {font-size:1.6rem;}
+      .hero p {font-size:0.95rem;}
+      .frosted-header {
+        flex-direction:column;
+        text-align:center;
+        padding:10px 20px;
+      }
+      nav a {margin:6px;display:inline-block;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Frosted Header -->
+  <header class="frosted-header">
+    <img src="spotalert_logo.png" alt="SpotAlert Logo" class="logo" />
+    <nav>
+      <a href="#features">Features</a>
+      <a href="signup.html">Start Free Trial</a>
+      <a href="login.html" id="login-btn">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Don’t Wait Until It Happens – <span>Stay Alert with SpotAlert</span></h1>
+      <p>Advanced AI facial recognition and motion detection that identifies unknown faces and sends instant alerts before danger occurs.</p>
+      <div class="buttons">
+        <a href="signup.html" class="btn-primary">Start Free Trial</a>
+        <a href="#features" class="btn-secondary">Explore Features</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CCTV Section (Fixed Overlay) -->
+  <section class="cctv-section">
+    <img src="cctv_background.png" alt="SpotAlert CCTV Security">
+    <div class="cctv-text">
+      <h2>24/7 AI Surveillance in Action</h2>
+      <p>SpotAlert keeps watch when you can’t — always learning, always alert.</p>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>AI-Powered Security That Thinks Ahead</h2>
+    <div class="features-grid">
+      <div class="feature"><h3>Facial Recognition</h3><p>Detects and identifies faces instantly, alerting you via email or app if someone unknown is detected.</p></div>
+      <div class="feature"><h3>Live Tracking</h3><p>Monitor real-time video streams of detected movements directly from your dashboard.</p></div>
+      <div class="feature"><h3>Zone & Time Rules</h3><p>Allow specific people only in certain zones or time frames. SpotAlert alerts you when rules are broken.</p></div>
+      <div class="feature"><h3>Email & App Alerts</h3><p>Instant notifications with image snapshots and optional live camera feed for every detection.</p></div>
+      <div class="feature"><h3>AI Camera Assistant</h3><p>Upload your camera image, and our smart setup assistant will guide you through connection and calibration.</p></div>
+      <div class="feature"><h3>Cloud Dashboard</h3><p>Manage all alerts, connected cameras, and access control from your secure SpotAlert dashboard.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Be Notified Instantly When It Matters Most</h2>
+    <p>Start your free trial today and experience the power of AI security monitoring.</p>
+    <a href="signup.html" class="btn-primary">Start Free Trial</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 SpotAlert Live. All rights reserved.</p>
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms & Conditions</a> | 
+    <a href="mailto:support@spotalert.live">Contact</a>
+  </footer>
+
+  <script>
+    document.getElementById('login-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

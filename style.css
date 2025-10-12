@@ -1,0 +1,217 @@
+/* === General Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Frosted Header (Centered Logo + Same Colors) === */
+.frosted-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+/* === Logo Glow === */
+.frosted-header img.logo {
+  height: 65px;
+  width: auto;
+  margin-bottom: 8px;
+  animation: logoGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% { filter: drop-shadow(0 0 2px #00a6ff) brightness(1); }
+  50% { filter: drop-shadow(0 0 10px #00aaff) brightness(1.15); }
+  100% { filter: drop-shadow(0 0 4px #007bff) brightness(1.05); }
+}
+
+/* === Nav below logo === */
+.frosted-header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.frosted-header nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.frosted-header nav a:hover {
+  color: #004aad;
+}
+
+/* === Hero Section (sky blue gradient) === */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 180px 10% 140px 10%;
+  color: #fff;
+  background: linear-gradient(180deg, #b9e6ff 0%, #6cc4ff 100%);
+  min-height: 90vh;
+}
+
+.hero-content {
+  max-width: 700px;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 2.4rem;
+  color: #0d4ca3;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content span {
+  color: #007bff;
+}
+
+.hero-content p {
+  margin-top: 12px;
+  color: #113b7a;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+.btn-secondary:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* === Divider between Hero and CCTV === */
+.section-divider {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, #6cc4ff 0%, #003366 100%);
+}
+
+/* === CCTV Section (no overlap, clear layout) === */
+.cctv-section {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  overflow: hidden;
+  background: #001e40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cctv-section img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+  filter: brightness(0.9) contrast(1.05);
+  z-index: 0;
+}
+
+.cctv-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 40px 45px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 640px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.cctv-text h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 14px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cctv-text p {
+  color: #eaf6ff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* === Responsive Fixes === */
+@media (max-width: 768px) {
+  .frosted-header {
+    padding: 12px 16px;
+  }
+
+  .frosted-header img.logo {
+    height: 55px;
+    margin-bottom: 6px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cctv-overlay {
+    padding: 28px 24px;
+  }
+
+  .cctv-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .cctv-text p {
+    font-size: 1rem;
+  }
+}

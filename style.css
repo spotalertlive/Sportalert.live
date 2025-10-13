@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f9fbff;
+  color: #0d1b2a;
+  text-align: center;
+}
+
+/* ===== HEADER ===== */
+.frosted-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 45px;
+  margin-right: 20px;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #0073ff;
+  font-weight: 600;
+}
+
+/* ===== HERO (Blue Section) ===== */
+.alert-hero {
+  background: linear-gradient(180deg, #aee0ff, #57b3ff);
+  color: white;
+  text-align: center;
+  padding: 140px 20px 100px;
+}
+
+.alert-hero h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.alert-hero span {
+  color: #d9e8ff;
+  font-weight: 600;
+}
+
+.alert-hero p {
+  font-size: 1.05em;
+  color: white;
+  max-width: 700px;
+  margin: 20px auto 0;
+  line-height: 1.6;
+}
+
+/* ===== CCTV SECTION ===== */
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 25px 30px;
+  border-radius: 12px;
+}
+
+.hero-overlay h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ===== FEATURES ===== */
+.features {
+  padding: 80px 20px;
+}
+
+.features h2 {
+  font-size: 1.8em;
+  color: #001f3f;
+  margin-bottom: 40px;
+}
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.feature {
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 25px;
+  width: 280px;
+}
+
+.feature h3 {
+  color: #001f3f;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+/* ===== NOTIFY SECTION ===== */
+.notify-section {
+  background: #007bff;
+  color: white;
+  padding: 70px 20px;
+}
+
+.start-btn {
+  display: inline-block;
+  background: white;
+  color: #007bff;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #f5f8fc;
+  color: #333;
+  padding: 25px 10px;
+  font-size: 0.9em;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== SHIRA GLOW ===== */
+#shira-assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #00f0ff, #8a2be2);
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+  transition: transform 0.2s ease;
+  z-index: 1001;
+}
+
+#shira-assistant:hover {
+  transform: scale(1.1);
+}

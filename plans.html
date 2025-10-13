@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpotAlert Plans | Choose Your AI Security Level</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .plans-section {
+      padding: 120px 20px 80px;
+      background: linear-gradient(to bottom,#f9fbff,#e9f3ff);
+      text-align: center;
+    }
+    .plans-section h2 {
+      font-size: 2rem;
+      color: #003366;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .plan {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      padding: 35px 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .plan:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0,123,255,0.15);
+    }
+    .plan h3 {
+      font-size: 1.3rem;
+      color: #003366;
+      margin-bottom: 8px;
+    }
+    .plan p.price {
+      font-size: 1.2rem;
+      color: #007bff;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    ul.features {
+      list-style: none;
+      text-align: left;
+      margin: 20px 0;
+      color: #333;
+      line-height: 1.7;
+    }
+    ul.features li::before {
+      content: "✔ ";
+      color: #007bff;
+      font-weight: bold;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover { background: #005bd8; }
+
+    /* coming soon style */
+    .coming-soon {
+      opacity: 0.5;
+      pointer-events: none;
+      position: relative;
+    }
+    .coming-soon::after {
+      content: "Coming Soon";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #000;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    @media(max-width:768px){
+      .plans-section{padding-top:100px;}
+      .plan h3{font-size:1.2rem;}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="frosted-header">
+    <img src="logo.png" alt="SpotAlert Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#plans">Plans</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section id="plans" class="plans-section">
+    <h2>Choose Your SpotAlert Plan</h2>
+    <div class="plans-grid">
+
+      <!-- Free Trial -->
+      <div class="plan">
+        <h3>Free Trial</h3>
+        <p class="price">14 Days Free</p>
+        <ul class="features">
+          <li>Up to 2 cameras</li>
+          <li>200 scans total</li>
+          <li>Email alerts only</li>
+          <li>No WhatsApp/App alerts</li>
+          <li>Zone rules disabled</li>
+          <li>Auto-upgrade prompt before trial ends</li>
+        </ul>
+        <a href="signup.html?plan=free" class="btn">Start Free Trial</a>
+      </div>
+
+      <!-- Standard -->
+      <div class="plan">
+        <h3>Standard Plan</h3>
+        <p class="price">$19.99 / month</p>
+        <ul class="features">
+          <li>Up to 4 cameras</li>
+          <li>3,000 scans per month</li>
+          <li>Email alerts enabled</li>
+          <li>7-day alert history</li>
+          <li>Zone & time rules disabled</li>
+        </ul>
+        <a href="signup.html?plan=standard" class="btn">Choose Standard</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="plan coming-soon">
+        <h3>Premium Plan</h3>
+        <p class="price">$49.99 / month</p>
+        <ul class="features">
+          <li>Up to 9 cameras</li>
+          <li>10,000 scans per month</li>
+          <li>All alert types (WhatsApp / Email / App)</li>
+          <li>AI priority scanning</li>
+          <li>14-day alert history</li>
+          <li>Custom time zone control</li>
+        </ul>
+        <a href="#" class="btn">Coming Soon</a>
+      </div>
+
+      <!-- Elite -->
+      <div class="plan coming-soon">
+        <h3>Elite Plan</h3>
+        <p class="price">$99.99 / month</p>
+        <ul class="features">
+          <li>Up to 20 cameras</li>
+          <li>30,000 scans per month</li>
+          <li>All alert types (WhatsApp / Email / App)</li>
+          <li>Live tracking + AI analytics</li>
+          <li>Advanced time zone scheduling (per camera)</li>
+          <li>30-day alert history + full API access</li>
+        </ul>
+        <a href="#" class="btn">Coming Soon</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SpotAlert Live. All rights reserved.</p>
+    <div>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms & Conditions</a> |
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

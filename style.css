@@ -1,0 +1,344 @@
+/* === Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f9fbff;
+  color: #111;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* === Frosted Header === */
+.frosted-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+.frosted-header img.logo {
+  height: 65px;
+  width: auto;
+  margin-bottom: 8px;
+  animation: logoGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% { filter: drop-shadow(0 0 2px #00a6ff) brightness(1); }
+  50% { filter: drop-shadow(0 0 12px #00aaff) brightness(1.2); }
+  100% { filter: drop-shadow(0 0 4px #007bff) brightness(1.05); }
+}
+
+.frosted-header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.frosted-header nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.frosted-header nav a:hover {
+  color: #004aad;
+}
+
+/* === Hero Section === */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 180px 10% 140px 10%;
+  background: radial-gradient(circle at top, #c9ecff 0%, #7dd0ff 50%, #4a9eff 100%);
+  min-height: 90vh;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 700px;
+  z-index: 2;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+.hero h1 span {
+  color: #bfe8ff;
+  text-shadow: 0 0 10px rgba(0, 153, 255, 0.6);
+}
+
+.hero p {
+  margin-top: 12px;
+  color: #f4f9ff;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.buttons {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* === Buttons === */
+.btn-primary, .btn-secondary {
+  text-decoration: none;
+  padding: 13px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary:hover {
+  background: #0066d8;
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.7);
+}
+
+.btn-secondary {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  color: #007bff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+}
+
+/* === CCTV Section === */
+.cctv-section {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  overflow: hidden;
+  background: #001e40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cctv-section img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+  filter: brightness(0.85) contrast(1.1);
+  z-index: 0;
+}
+
+.cctv-text {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 45px 50px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 680px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.cctv-text h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.cctv-text p {
+  color: #eaf6ff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* === Features Section === */
+.features {
+  padding: 80px 20px;
+  background: #f9fbff;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 1.9rem;
+  color: #003366;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feature {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 123, 255, 0.2);
+}
+
+/* === Plans Page === */
+.plans-section {
+  padding: 160px 30px 80px 30px;
+  background: #f9fbff;
+  text-align: center;
+}
+
+.plans-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.plans-subtitle {
+  color: #444;
+  margin-bottom: 50px;
+  font-size: 1rem;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 16px;
+  padding: 35px 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 123, 255, 0.2);
+}
+
+.plan-card h2 {
+  color: #003366;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.plan-card .price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.plan-card ul {
+  list-style: none;
+  margin-bottom: 25px;
+  text-align: left;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.plan-card ul li {
+  margin-bottom: 8px;
+}
+
+.plan-card .btn-primary {
+  display: inline-block;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.recommended {
+  border: 3px solid #007bff;
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* === Footer === */
+footer {
+  background: #f0f4fa;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.9rem; }
+  .hero p { font-size: 1rem; }
+  .cctv-text { padding: 30px 24px; max-width: 90%; }
+  .plans-title { font-size: 1.8rem; }
+}

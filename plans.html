@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plans & Pricing | SpotAlert Live</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="spotalert_logo.png" />
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      color: #222;
+    }
+
+    header.frosted-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 10;
+    }
+
+    header img.logo {
+      height: 45px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #0078ff;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .plans-hero {
+      text-align: center;
+      padding: 80px 20px 50px;
+      background: linear-gradient(180deg, #eaf3ff 0%, #ffffff 100%);
+    }
+
+    .plans-hero h1 {
+      color: #0078ff;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .plans-hero p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      padding: 40px 20px 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .plan-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0, 120, 255, 0.08);
+      border: 2px solid transparent;
+      padding: 30px 25px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-6px);
+      border-color: #0078ff;
+      box-shadow: 0 8px 25px rgba(0, 120, 255, 0.15);
+    }
+
+    .plan-card h2 {
+      font-size: 1.4rem;
+      color: #0078ff;
+      margin-bottom: 8px;
+    }
+
+    .plan-card h3 {
+      font-size: 1.8rem;
+      color: #111;
+      margin: 5px 0 15px;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 25px;
+      text-align: left;
+    }
+
+    .plan-card li {
+      padding: 6px 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .plan-card li::before {
+      content: "✔️ ";
+      color: #0078ff;
+      margin-right: 6px;
+    }
+
+    .plan-card a {
+      display: inline-block;
+      background: #0078ff;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .plan-card a:hover {
+      background: #005fcc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+      background: #f1f6fa;
+      color: #555;
+    }
+
+    .footer-links a {
+      color: #0078ff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="frosted-header">
+    <img src="spotalert_logo.png" alt="SpotAlert Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="plans.html">Plans</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="plans-hero">
+    <h1>Choose the Right Plan for You</h1>
+    <p>Start with a 14-day free trial and upgrade anytime for more cameras and advanced AI alerts.</p>
+  </section>
+
+  <section class="pricing-grid">
+    <div class="plan-card">
+      <h2>Free Trial</h2>
+      <h3>$0 / 14 Days</h3>
+      <ul>
+        <li>Up to 2 cameras</li>
+        <li>200 scans total</li>
+        <li>Email alerts only</li>
+        <li>No WhatsApp/App alerts</li>
+        <li>Zone rules disabled</li>
+        <li>Auto-upgrade prompt before trial ends</li>
+      </ul>
+      <a href="signup.html">Start Free Trial</a>
+    </div>
+
+    <div class="plan-card">
+      <h2>Standard Plan</h2>
+      <h3>$19.99 / month</h3>
+      <ul>
+        <li>Up to 4 cameras</li>
+        <li>Unlimited scans</li>
+        <li>Email + Push alerts</li>
+        <li>Zone rules enabled</li>
+        <li>Basic analytics dashboard</li>
+      </ul>
+      <a href="signup.html">Choose Plan</a>
+    </div>
+
+    <div class="plan-card">
+      <h2>Premium Plan</h2>
+      <h3>$49.99 / month</h3>
+      <ul>
+        <li>Up to 10 cameras</li>
+        <li>Full AI motion & face tracking</li>
+        <li>Email, App, and WhatsApp alerts</li>
+        <li>Zone and time rule automation</li>
+        <li>Advanced analytics & reports</li>
+      </ul>
+      <a href="signup.html">Choose Plan</a>
+    </div>
+
+    <div class="plan-card">
+      <h2>Elite Plan</h2>
+      <h3>$99.99 / month</h3>
+      <ul>
+        <li>Unlimited cameras</li>
+        <li>All AI detection modes unlocked</li>
+        <li>Multi-site monitoring</li>
+        <li>24/7 email & app alerts</li>
+        <li>Priority AI support</li>
+      </ul>
+      <a href="signup.html">Choose Plan</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SpotAlert Live. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms & Conditions</a> |
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

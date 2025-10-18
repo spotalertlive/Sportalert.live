@@ -284,7 +284,7 @@ footer {
   border-top: 4px solid #007bff;
   position: relative;
 }
-
+<div class="plan-card coming-soon">
 /* 🔵 ELITE COMING SOON BADGE */
 .plan-card.coming-soon::after {
   content: "Coming Soon";

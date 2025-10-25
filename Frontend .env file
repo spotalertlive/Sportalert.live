@@ -1,0 +1,17 @@
+# ===============================
+# SpotAlert Frontend Environment
+# ===============================
+
+# Link frontend → backend API
+REACT_APP_API_URL=http://52.91.207.237:3000
+
+# Optional (for consistency with backend env)
+REACT_APP_S3_BUCKET=spotalert
+REACT_APP_REKOG_COLLECTION_ID=SpotAlertCollection
+
+# Optional email references (for alert setup pages)
+REACT_APP_SES_FROM_EMAIL=aispotalert@gmail.com
+REACT_APP_ALERT_SUBJECT=[SpotAlert] Unknown Face Detected
+
+# Environment setting
+REACT_APP_ENV=production

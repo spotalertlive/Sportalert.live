@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up – SpotAlert</title>
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f7f9fb;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .signup-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    img {
+      height: 55px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: #0078ff;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #0078ff;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 95%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #005fcc;
+    }
+
+    .msg {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #0078ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      font-family: "Poppins", Arial, sans-serif;
+      color: #555;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: #0078ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    #shira-assistant {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#0078ff,#00c6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,120,255,0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-box">
+    <img src="spotalert_logo.png" alt="SpotAlert Logo">
+    <h2>Create Your SpotAlert Account</h2>
+    <form id="signupForm">
+      <input type="text" id="name" placeholder="Full Name" required /><br />
+      <input type="email" id="email" placeholder="Email" required /><br />
+      <input type="password" id="password" placeholder="Password" required /><br />
+      <button type="submit">Sign Up</button>
+    </form>
+    <p class="msg" id="msg"></p>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <footer>
+    <p>© 2025 SpotAlert Live. All rights reserved.</p>
+    <div>
+      <a href="/privacy.html" target="_blank">Privacy Policy</a> |
+      <a href="/terms.html" target="_blank">Terms & Conditions</a> |
+      <a href="/contact.html" target="_blank">Contact</a>
+    </div>
+  </footer>
+
+  <div id="shira-assistant">💬</div>
+
+  <script>
+    const API_BASE = "http://100.25.104.193:3000"; // ✅ Live backend endpoint
+    const form = document.getElementById("signupForm");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.textContent = "⏳ Creating your account...";
+
+      const payload = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+      };
+
+      try {
+        // ✅ Corrected route (with /api)
+        const res = await fetch(`${API_BASE}/api/signup`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          msg.textContent = "✅ Account created! Check your email to verify.";
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 2500);
+        } else {
+          msg.textContent = "⚠️ " + (data.error || "Signup failed. Try again.");
+        }
+      } catch (err) {
+        msg.textContent = "❌ Network error. Please try again.";
+        console.error(err);
+      }
+    });
+
+    document.getElementById('shira-assistant').addEventListener('click', () => {
+      alert("👋 Hi, I’m Shira! You can reach us at admin@spotalert.live anytime.");
+    });
+  </script>
+</body>
+</html>

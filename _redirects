@@ -1,0 +1,1 @@
+/api/*   http://<YOUR-EC2-PUBLIC-IP>:3000/:splat   200
